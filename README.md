@@ -1,6 +1,6 @@
 ##Statister
-###Statistics Maker plugin for OctoberCMS
-####The plugin maks a powerfull statistics system in OctoberCMS backend panel based on YAML file you as a developer will write with specific easy rules.
+###Statistics Maker plugin for Laravel 5.2/OctoberCMS
+####The plugin maks a powerfull statistics system in your backend panel based on YAML file you (as a developer) will write with specific easy rules.
 
 ###Main features
 * General statistics.

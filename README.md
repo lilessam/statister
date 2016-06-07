@@ -40,7 +40,7 @@
 * __col__ refers to the coloumn in database table which __MUST__ be boolean to specify which has the value of __FALSE__ and which has the value of __TRUE__ and __STATISTER__ only shows the rows number which has __TRUE__ on this field.
 * __color__ refers to the color hex code for this coloumn.
 
-####If you have a relations in this model you can also define __relations__ attribute.
+####If you have relations in this model you can also define __relations__ attribute.
 ####RELATIONS ATTRIBUTE RULES
 * You'll have to define the first index as a number starts from zero.
 * You have to specify model, col and label attributes.

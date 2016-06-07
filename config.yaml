@@ -1,0 +1,56 @@
+backend_users:
+    label_p: 'Users'
+    label_s: 'User'
+    table: 'backend_users'
+    last_field: 'login'
+    last_field_label: 'Last user registered'
+    class: '\Backend\Models\User'
+    fields:
+        0:
+            label: 'Is Activated'
+            col: 'is_activated'
+            color: '#95b753'
+        1:
+            label: 'Is Superadmin'
+            col: 'is_superuser'
+            color: '#ccc'
+gulfdata_islamvolunteers_idea:
+    label_p: 'Ideas'
+    label_s: 'Idea'
+    last_field: 'title'
+    last_field_label: 'Last idea created'
+    table: 'gulfdata_islamvolunteers_idea'
+    class: '\Gulfdata\Islamvolunteers\Models\Idea'
+    fields:
+        0:
+            label: 'Is Published'
+            col: 'published'
+            color: '#95b753'
+
+    relations:
+        0:
+            model: 'user'
+            col: 'login'
+            label: 'Last ideas user'
+gulfdata_islamvolunteers_comments:
+    label_p: 'Comments'
+    label_s: 'Comment'
+    last_field: 'comment'
+    last_field_label: 'Last Comment'
+    table: 'gulfdata_islamvolunteers_comments'
+    class: '\Gulfdata\Islamvolunteers\Models\Comment'
+    fields:
+        0:
+            label: 'Is Published'
+            col: 'published'
+            color: '#ccc'
+
+    relations:
+        0:
+            model: 'user'
+            col: 'login'
+            label: 'Last user commented'
+        1:
+            model: 'idea'
+            col: 'title'
+            label: 'Last comments idea'

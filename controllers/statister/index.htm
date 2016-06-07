@@ -1,0 +1,279 @@
+<?php
+ /*****************************************************************************
+ ******************************************************************************
+ ************************************ Mail Sender *****************************
+ *                                                                            *
+ *                              Developed By Lil'Essam                        *
+ *                                                                            *
+ *****************************************************************************/
+
+?>
+
+<div class="container">
+    <div class="row">
+        
+        <h4><?= Lang::get('lilessam.statister::lang.general') ?></h4>
+        <div
+        class="control-chart wrap-legend"
+        data-control="chart-bar"
+        data-height="100"
+        data-full-width="1">
+            <ul>
+        <?php
+        foreach($array as $value){
+            if(isset($value['table'])){
+                #Count of all rows of the table
+                $count = DB::table($value['table'])->count();
+        ?>
+                
+                <li><?= $value['label_p'] ?><span><?= $count ?></span></li>
+                    
+        <?php
+            }
+        }
+        ?>
+            </ul>
+        </div>
+        <br>
+        <?php
+        foreach($array as $key => $value)
+                {
+                    #Check if there's a table in the array
+                    if(isset($value['table']) && isset($value['class'])){
+                        #Count of all rows of the table
+                        $count = DB::table($value['table'])->count();
+                        #Getting the last row in the table
+                        $get = DB::table($value['table'])->orderBy('id', 'desc')->first();
+                        
+                        
+                        
+                        ?>
+                        <h4><?= $value['label_p'] ?></h4>
+                        <!-- Scoreboard -->
+                        <div class="scoreboard">
+                            <div data-control="toolbar">
+                                <!-- Checking for showing chart pie -->
+                                <?php
+                                if(isset($value['fields'])){
+            
+                                ?>
+                                <div class="scoreboard-item control-chart" data-control="chart-pie">
+                                    <ul>
+                                <?php 
+                                //Spcifieding columns
+                                $i = 0;
+                                for($i; $i<= 30; $i++){
+        
+                                    if(isset($value['fields'][$i])):
+                                        
+                                        
+                                        if(!(isset($value['fields'][$i]['col'])) ||
+                                        !(isset($value['fields'][$i]['label'])) ||
+                                        !(isset($value['fields'][$i]['color']))){
+                                        ?>
+                                        <!-- Start warning callouts -->
+                                        <div class="callout fade in callout-warning no-icon no-subheader">
+                                            <div class="header">
+                                                <h3><?= Lang::get('lilessam.statister::lang.warning_title') ?></h3>
+                                            </div>
+                                            <div class="content">
+                                                <p><?= Lang::get('lilessam.statister::lang.warning_fields') ?><?= $value['label_p'] ?><?= Lang::get('lilessam.statister::lang.warning_fields_end') ?></p>
+                                            </div>
+                                        </div>
+                                        <!-- End warning callouts -->
+                                        <?php
+                                        }else{
+                                        
+                                        $row = DB::table($value['table'])->where($value['fields'][$i]['col'], 1)->count();
+                                        //echo $value['fields'][$i]['label']." ";
+                                        //echo $row."<br>";
+                                    ?>
+                                    <li data-color="<?= $value['fields'][$i]['color'] ?>"><?= $value['fields'][$i]['label'] ?> <span><?= $row ?></span></li>
+                                    <?php
+                                        }
+                                    endif;
+                                }
+                                #End specifieding column
+                                ?>
+                                    </ul>
+                                </div>
+                                <?php
+                                }
+                                ?>
+                                <!-- End checking for showing chart pie -->
+                                
+                                <!-- Checking for showing chart bar -->
+                                <?php
+                                if(isset($value['fields'])){
+                                ?>
+                                <div class="scoreboard-item control-chart" data-control="chart-bar">
+                                    <ul>
+                                <?php 
+                                //Spcifieding columns
+                                $i = 0;
+                                for($i; $i<= 30; $i++){
+        
+                                    if(isset($value['fields'][$i])):
+                                        
+                                        if(!(isset($value['fields'][$i]['col'])) ||
+                                        !(isset($value['fields'][$i]['label'])) ||
+                                        !(isset($value['fields'][$i]['color']))){
+                                        ?>
+                                        <!-- Start warning callouts -->
+                                        <div class="callout fade in callout-warning no-icon no-subheader">
+                                            <div class="header">
+                                                <h3><?= Lang::get('lilessam.statister::lang.warning_title') ?></h3>
+                                            </div>
+                                            <div class="content">
+                                                <p><?= Lang::get('lilessam.statister::lang.warning_fields') ?><?= $value['label_p'] ?><?= Lang::get('lilessam.statister::lang.warning_fields_end') ?></p>
+                                            </div>
+                                        </div>
+                                        <!-- End warning callouts -->
+                                        <?php
+                                        }else{
+                                    $row = DB::table($value['table'])->where($value['fields'][$i]['col'], 1)->count();
+                                    //echo $value['fields'][$i]['label']." ";
+                                    //echo $row."<br>";
+                                    ?>
+                                    <li data-color="<?= $value['fields'][$i]['color'] ?>"><?= $value['fields'][$i]['label'] ?> <span><?= $row ?></span></li>
+                                <?php
+                                        }
+                                    endif;
+                                }
+                                #End specifieding column
+                                ?>
+                                    </ul>
+                                </div>
+                                <?php
+                                }
+                                ?>
+                                <!-- End checking for showing chart bar -->
+                                
+                                <!-- Checking for showing Goal Meter -->
+                                <?php
+                                if(isset($value['fields'])){
+        
+                                //Spcifieding columns
+                                $i = 0;
+                                for($i; $i<= 30; $i++){
+        
+                                    if(isset($value['fields'][$i])):
+                                      if(!(isset($value['fields'][$i]['col'])) ||
+                                        !(isset($value['fields'][$i]['label'])) ||
+                                        !(isset($value['fields'][$i]['color']))){
+                                        ?>
+                                        <!-- Start warning callouts -->
+                                        <div class="callout fade in callout-warning no-icon no-subheader">
+                                            <div class="header">
+                                                <h3><?= Lang::get('lilessam.statister::lang.warning_title') ?></h3>
+                                            </div>
+                                            <div class="content">
+                                                <p><?= Lang::get('lilessam.statister::lang.warning_fields') ?><?= $value['label_p'] ?><?= Lang::get('lilessam.statister::lang.warning_fields_end') ?></p>
+                                            </div>
+                                        </div>
+                                        <!-- End warning callouts -->
+                                        <?php
+                                        }else{ 
+                                    $row = DB::table($value['table'])->where($value['fields'][$i]['col'], 1)->count();
+                                    //echo $value['fields'][$i]['label']." ";
+                                    //echo $row."<br>";
+                                    if($row != 0){
+                                    ?>
+                                    
+                                    <div class="scoreboard-item title-value" data-control="goal-meter" data-value="<?= $row/100 ?>">
+                                        <h4><?= $value['fields'][$i]['label'] ?></h4>
+                                        <p><?= $row/100 ?>%</p>
+                                        <p class="description"><?= Lang::get('lilessam.statister::lang.from') ?> <?= $count ?></p>
+                                    </div>
+        
+                                <?php
+                                    }
+                                    }
+                                    endif;
+                                }
+                                #End specifieding column
+        
+                                }
+                                ?>
+                                <!-- End checking for showing Goal Meter -->
+                                
+                                
+                                <!-- All count -->
+                                <div class="scoreboard-item title-value">
+                                    <h4><?= $value['label_p'] ?></h4>
+                                    <p>
+                                        <?php
+                                        if($count != 0){
+                                            echo round($count/1000, 2)." K";
+                                        }else{
+                                            echo $count;
+                                        }
+                                        ?>
+                                    </p>
+                                    <p class="description"><?= Lang::get('lilessam.statister::lang.unit') ?></p>
+                                </div>
+                                <!-- All count End -->
+                                
+                                <!-- Last field -->
+                                <div class="scoreboard-item title-value">
+                                    <h4><?= $value['last_field_label'] ?></h4>
+                                    <p class="oc-icon-star"><?= substr($get->{$value['last_field']}, 0, 20).".." ?></p>
+                                    <p class="description"></p>
+                                </div>
+                                <!-- Last field End -->
+                                
+                                <?php
+                                 #check if there's relations
+                                if(isset($value['relations'])){
+                                    $c = 0;
+                                    for($c; $c <= 10; $c++){
+                                        #check if there's this specific relation
+                                        if(isset($value['relations'][$c])){
+                                            $lastEntityForID = DB::table($value['table'])->orderBy('id', 'desc')->first();
+                                            $lastEntityID = $lastEntityForID->id;
+                                            $lastEntity = call_user_func($value['class'] .'::find',$lastEntityID);
+                                            ?>
+                                            <div class="scoreboard-item title-value">
+                                                <h4><?= $value['relations'][$c]['label'] ?></h4>
+                                                <p class="oc-icon-star"><?= $lastEntity->{$value['relations'][$c]['model']}->{$value['relations'][$c]['col']} ?></p>
+                                                <p class="description"></p>
+                                            </div>
+                                            <?php
+                                            
+                                        }
+                                    }
+                                }
+                                #End Check Relations
+                                //echo $get->{$value['last_field']}."<br>";
+                                //echo $count."<br>";
+                                ?>
+                                
+                            </div>
+                        </div>
+                        <!-- End Scoreboard -->
+                        
+                    <?php
+                        
+                    }else{
+                        
+                        ?>
+                        <!-- Start warning callouts -->
+                        <div class="callout fade in callout-warning no-icon no-subheader">
+                            <div class="header">
+                                <h3><?= Lang::get('lilessam.statister::lang.warning_title') ?></h3>
+                            </div>
+                            <div class="content">
+                                <p><?= Lang::get('lilessam.statister::lang.warning_table') ?><?= $value['label_p'] ?><?= Lang::get('lilessam.statister::lang.warning_table_end') ?></p>
+                            </div>
+                        </div>
+                        <!-- End warning callouts -->
+                        <?php
+                    }
+                    
+                    
+                }
+        
+                ?>
+
+    </div>
+</div>

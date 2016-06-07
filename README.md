@@ -30,6 +30,7 @@
 * __last_field__ refers to the last row field you want to show.
 * __last_field_label__ refers to label which will describe the last field of the last row which will be showed.
 * __class__ refers to path of the model class.
+
 ####If you like to specify some fields that are boolean which you want to show to the user you will have to define 'fields' attribute. (For example I have published ideas and unpublished ideas based on a coloumn in ideas table called 'published' and I want to show the user how many ideas is published and how many is not).
 
 ####FIELDS ATTRIBUTE RULES

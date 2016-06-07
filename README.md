@@ -37,7 +37,7 @@
 * You'll have to define the first index as a number starts from zero.
 * In every number you'll have to define __label__ , __col__ and __color__.
 * __label__ refers to the label. (in our example I'll write 'Is Published')
-* __col__ refers to the coloumn in database table which __MUST__ be boolean to specify which has the value of __FALSE__ and whoch has the value of __TRUE__ and __STATISTER__ only shows the rows number which has __TRUE__ on this field.
+* __col__ refers to the coloumn in database table which __MUST__ be boolean to specify which has the value of __FALSE__ and which has the value of __TRUE__ and __STATISTER__ only shows the rows number which has __TRUE__ on this field.
 * __color__ refers to the color hex code for this coloumn.
 
 ####If you have a relations in this model you can also define __relations__ attribute.

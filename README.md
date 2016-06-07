@@ -44,7 +44,7 @@
 ####RELATIONS ATTRIBUTE RULES
 * You'll have to define the first index as a number starts from zero.
 * You have to specify model, col and label attributes.
-* __model__ refers to models which have relation (belongsTo) the current model.
+* __model__ refers to models which have relation (belongsTo) with the current model.
 * __col__ refers the the coloumn you wanna show (latest row).
 * __label__ refers to the label which describes what will be displayed
 

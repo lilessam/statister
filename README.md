@@ -19,6 +19,9 @@
 1. Upload folder __statister__ to __lilesssam__ folder.
 1. Login into your backend control panel > __Statistics__.
 
+####Via Composer
+`composer require lilessam/statister dev-master --dev`
+
 ###How to use Statister
 ####Statister is easy to use. All you need to do is opening config.yaml file and start writing your preferences.
 

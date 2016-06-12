@@ -1,0 +1,14 @@
+{
+    "name": "lilessam/statister",
+    "description": "Statister is a plugin for Laravel 5.2/OctoberCMS developers which makes it very easy to make a powerfull statistics system for your website.",
+    "authors": [
+        {
+            "name": "Ahmed Essam",
+            "email": "ErwinChafros@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}

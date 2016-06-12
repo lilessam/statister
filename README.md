@@ -13,6 +13,7 @@
 ###Available languages
 * en - English
 * ar - العربية
+* tr - Türkçe
 
 ###Installation
 1. Create a folder named lilessam in your __root/plugins__ folder.

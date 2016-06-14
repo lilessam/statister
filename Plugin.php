@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'          => 'Statister',
-            'description'   => 'Provides a full statistics page based on json array you provide',
+            'description'   => 'Provides a full statistics page based on YAML file you write',
             'author'        => 'LilEssam',
             'icon'          => 'icon-signal'
         ];

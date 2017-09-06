@@ -1,8 +1,8 @@
-##Statister
-###Statistics Maker plugin for Laravel 5.2/OctoberCMS
-####The plugin maks a powerfull statistics system in your backend panel based on YAML file you (as a developer) will write with specific easy rules.
+## Statister
+### Statistics Maker plugin for Laravel 5.2/OctoberCMS
+#### The plugin maks a powerfull statistics system in your backend panel based on YAML file you (as a developer) will write with specific easy rules.
 
-###Main features
+### Main features
 * General statistics.
 * Specific fields.
 * Ability to choose colors.
@@ -10,23 +10,23 @@
 * Relational Statistics.
 * Flexbility to choose what you want to show.
 
-###Available languages
+### Available languages
 * en - English
 * ar - العربية
 * tr - Türkçe
 
-###Installation
+### Installation
 1. Create a folder named lilessam in your __root/plugins__ folder.
 1. Upload folder __statister__ to __lilesssam__ folder.
 1. Login into your backend control panel > __Statistics__.
 
-####Via Composer
+#### Via Composer
 `composer require lilessam/statister dev-master --dev`
 
-###How to use Statister
-####Statister is easy to use. All you need to do is opening config.yaml file and start writing your preferences.
+### How to use Statister
+#### Statister is easy to use. All you need to do is opening config.yaml file and start writing your preferences.
 
-###CONFIG.YAML RULES
+### CONFIG.YAML RULES
 * Every element in config.yaml file __MUST__ have 'label_p', 'label_s', 'table', 'last_field', 'last_field_label', 'class' attributes. Or you will get an exception.
 * __label_p__ refers to the plural label of this table. __Ideas__ for example.
 * __label_s__ refers to the singular label of this table __Idea__ for example.
@@ -35,17 +35,17 @@
 * __last_field_label__ refers to label which will describe the last field of the last row which will be showed.
 * __class__ refers to path of the model class.
 
-######If you like to specify some fields that are boolean which you want to show to the user you will have to define 'fields' attribute. (For example I have 'published ideas' and 'unpublished ideas' based on a coloumn in ideas table called 'published' and It's boolean and I want to show the user how many ideas is published and how many is not).
+###### If you like to specify some fields that are boolean which you want to show to the user you will have to define 'fields' attribute. (For example I have 'published ideas' and 'unpublished ideas' based on a coloumn in ideas table called 'published' and It's boolean and I want to show the user how many ideas is published and how many is not).
 
-####FIELDS ATTRIBUTE RULES
+#### FIELDS ATTRIBUTE RULES
 * You'll have to define the first index as a number starts from zero.
 * In every number you'll have to define __label__ , __col__ and __color__.
 * __label__ refers to the label. (in our example I'll write 'Is Published')
 * __col__ refers to the coloumn in database table which __MUST__ be boolean to specify which has the value of __FALSE__ and which has the value of __TRUE__ and __STATISTER__ only shows the rows number which has __TRUE__ on this field.
 * __color__ refers to the color hex code for this coloumn.
 
-####If you have relations in this model you can also define __relations__ attribute.
-####RELATIONS ATTRIBUTE RULES
+#### If you have relations in this model you can also define __relations__ attribute.
+#### RELATIONS ATTRIBUTE RULES
 * You'll have to define the first index as a number starts from zero.
 * You have to specify model, col and label attributes.
 * __model__ refers to models which have relation (belongsTo) with the current model.
@@ -53,7 +53,7 @@
 * __label__ refers to the label which describes what will be displayed
 
 
-####Some Examples
+#### Some Examples
 ```yaml
 backend_users:
     label_p: 'Users'
@@ -115,7 +115,7 @@ gulfdata_islamvolunteers_comments:
 ```
 
 
-####Screenshot of result
+#### Screenshot of result
 ![Image of Statister Result](http://i.imgur.com/QgYeiTD.png)
 
-#####This whole plugin was built in less than 5 hours. So any issue while testing the plugin is welcomed !
+##### This whole plugin was built in less than 5 hours. So any issue while testing the plugin is welcomed !
